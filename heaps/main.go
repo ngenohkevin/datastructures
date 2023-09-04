@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // MaxHeap struct has a slice that holds the array
 
 type MaxHeap struct {
@@ -14,7 +16,7 @@ func (h *MaxHeap) Insert(key int) {
 }
 
 // Extract returns the largest key, and removes it from the heap
-
+// maxheapify will heapify from bottom top
 func (h *MaxHeap) MaxHeapifyUp(index int) {
 	for h.array[parent(index)] < h.array[index] {
 		h.swap(parent(index), index)
@@ -43,5 +45,7 @@ func (h *MaxHeap) swap(i1, i2 int) {
 }
 
 func main() {
-
+	m := &MaxHeap{}
+	fmt.Println(m)
+	// buildHeap := []int{10, 20, 30}
 }

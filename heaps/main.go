@@ -48,6 +48,31 @@ func parent(i int) int {
 	return (i - 1) / 2
 }
 
+// maxHeapify down will heapify top to bottom
+func (h *MaxHeap) MaxHeapifyDown(index int) {
+	lastIndex := len(h.array) - 1
+	l, r := left(index), right(index)
+
+	childToCompare := 0
+
+	for l <= lastIndex {
+		if l == lastIndex {
+			childToCompare = l
+		} else if h.array[l] > h.array[r] {
+			childToCompare = l
+		} else {
+			childToCompare = r
+		}
+		if h.array[index] < h.array[childToCompare] {
+			h.swap(index, childToCompare)
+			index = childToCompare
+			l, r = left(index), right(index)
+		} else {
+			return
+		}
+	}
+}
+
 // get the left child index
 func left(i int) int {
 	return 2*i + 1

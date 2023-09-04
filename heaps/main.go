@@ -16,6 +16,18 @@ func (h *MaxHeap) Insert(key int) {
 }
 
 // Extract returns the largest key, and removes it from the heap
+func (h *MaxHeap) Extract() int {
+	extracted := h.array[0]
+
+	l := len(h.array) - 1
+
+	h.array[0] = h.array[l]
+
+	h.array = h.array[:l]
+
+	return extracted
+}
+
 // maxheapify will heapify from bottom top
 func (h *MaxHeap) MaxHeapifyUp(index int) {
 	for h.array[parent(index)] < h.array[index] {
@@ -47,5 +59,10 @@ func (h *MaxHeap) swap(i1, i2 int) {
 func main() {
 	m := &MaxHeap{}
 	fmt.Println(m)
-	// buildHeap := []int{10, 20, 30}
+	buildHeap := []int{10, 20, 30}
+
+	for _, v := range buildHeap {
+		m.Insert(v)
+		fmt.Println(m)
+	}
 }

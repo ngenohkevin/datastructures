@@ -21,9 +21,16 @@ func (h *MaxHeap) Extract() int {
 
 	l := len(h.array) - 1
 
+	if len(h.array) == 0 {
+		fmt.Println("cannot extract because array length is 0")
+
+		return -1
+	}
+
 	h.array[0] = h.array[l]
 
 	h.array = h.array[:l]
+	h.MaxHeapifyDown(0)
 
 	return extracted
 }

@@ -88,6 +88,7 @@ func (h *MaxHeap) swap(i1, i2 int) {
 	h.array[i1], h.array[i2] = h.array[i2], h.array[i1]
 }
 
+// main
 func main() {
 	m := &MaxHeap{}
 	fmt.Println(m)

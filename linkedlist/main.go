@@ -1,7 +1,7 @@
 package main
 
 type node struct {
-	node int
+	data int
 	next *node
 }
 
@@ -13,8 +13,19 @@ type linkedList struct {
 func (l *linkedList) prepend(n *node) {
 	second := l.head
 	l.head = n
+
+	l.head.next = second
+	l.length++
 }
 
 func main() {
+	mylist := linkedList{}
 
+	node1 := &node{data: 48}
+	node2 := &node{data: 18}
+	node3 := &node{data: 16}
+
+	mylist.prepend(node1)
+	mylist.prepend(node2)
+	mylist.prepend(node3)
 }

@@ -10,6 +10,11 @@ type linkedList struct {
 	length int
 }
 
+func (l *linkedList) prepend(n *node) {
+	second := l.head
+	l.head = n
+}
+
 func main() {
 
 }

@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type node struct {
 	data int
 	next *node
@@ -28,4 +30,6 @@ func main() {
 	mylist.prepend(node1)
 	mylist.prepend(node2)
 	mylist.prepend(node3)
+
+	fmt.Println(mylist)
 }

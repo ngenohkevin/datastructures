@@ -30,6 +30,19 @@ func (l *linkedList) deleteByValue(value *node) {
 	if l.head.data == value.data {
 		l.head = l.head.next
 		l.length++
+		return
+	}
+
+	current := l.head
+	var prev *node
+
+	for current != nil && current.data != value.data {
+		prev = current
+		current = current.next
+	}
+	if current != nil {
+		prev.next = current.next
+		l.length--
 	}
 }
 func (l *linkedList) display() {
@@ -52,6 +65,8 @@ func main() {
 	mylist.prepend(node1)
 	mylist.prepend(node2)
 	mylist.prepend(node3)
+
+	mylist.deleteByValue(node1)
 
 	mylist.display()
 }

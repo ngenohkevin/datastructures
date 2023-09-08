@@ -40,6 +40,7 @@ func (l *linkedList) deleteByValue(value int) {
 		prev = current
 		current = current.next
 	}
+
 	if current != nil {
 		prev.next = current.next
 		l.length--

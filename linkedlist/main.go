@@ -3,8 +3,8 @@ package main
 import "fmt"
 
 type node struct {
-	data int
 	next *node
+	data int
 }
 
 type linkedList struct {
@@ -18,6 +18,7 @@ func (l *linkedList) prepend(n *node) {
 
 	l.head.next = second
 	l.length++
+
 }
 
 func main() {

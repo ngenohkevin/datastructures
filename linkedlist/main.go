@@ -22,21 +22,21 @@ func (l *linkedList) prepend(n *node) {
 }
 
 // delete the node by value
-func (l *linkedList) deleteByValue(value *node) {
+func (l *linkedList) deleteByValue(value int) {
 	if l.head == nil {
 		return
 	}
 
-	if l.head.data == value.data {
+	if l.head.data == value {
 		l.head = l.head.next
-		l.length++
+		l.length--
 		return
 	}
 
 	current := l.head
 	var prev *node
 
-	for current != nil && current.data != value.data {
+	for current != nil && current.data != value {
 		prev = current
 		current = current.next
 	}
@@ -66,7 +66,7 @@ func main() {
 	mylist.prepend(node2)
 	mylist.prepend(node3)
 
-	mylist.deleteByValue(node1)
+	mylist.deleteByValue(18)
 
 	mylist.display()
 }

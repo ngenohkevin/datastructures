@@ -21,6 +21,17 @@ func (l *linkedList) prepend(n *node) {
 
 }
 
+// delete the node by value
+func (l *linkedList) deleteByValue(value *node) {
+	if l.head == nil {
+		return
+	}
+
+	if l.head.data == value.data {
+		l.head = l.head.next
+		l.length++
+	}
+}
 func (l *linkedList) display() {
 	current := l.head
 

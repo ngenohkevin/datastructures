@@ -21,6 +21,16 @@ func (l *linkedList) prepend(n *node) {
 
 }
 
+func (l *linkedList) display() {
+	current := l.head
+
+	for current != nil {
+		fmt.Printf("%d ->", current.data)
+		current = current.next
+	}
+	fmt.Println("nil")
+}
+
 func main() {
 	mylist := linkedList{}
 
@@ -32,5 +42,5 @@ func main() {
 	mylist.prepend(node2)
 	mylist.prepend(node3)
 
-	fmt.Println(mylist)
+	mylist.display()
 }

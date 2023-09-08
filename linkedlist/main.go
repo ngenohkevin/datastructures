@@ -25,7 +25,7 @@ func (l *linkedList) display() {
 	current := l.head
 
 	for current != nil {
-		fmt.Printf("%d ->", current.data)
+		fmt.Printf("%d -> ", current.data)
 		current = current.next
 	}
 	fmt.Println("nil")

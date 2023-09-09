@@ -32,4 +32,7 @@ func main() {
 	myStack.Push(300)
 
 	fmt.Println(myStack)
+
+	myStack.Pop()
+	fmt.Println(myStack)
 }

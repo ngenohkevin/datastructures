@@ -8,12 +8,20 @@ type Stack struct {
 	items []int
 }
 
-// push
+// push will add value at the end
 func (s *Stack) Push(i int) {
 	s.items = append(s.items, i)
 }
 
-// pop
+// pop will remove value at the end
+// and returns the removed value
+func (s *Stack) Pop() int {
+	l := len(s.items) - 1
+
+	toRemove := s.items[l]
+	s.items = s.items[:l]
+	return toRemove
+}
 
 func main() {
 	myStack := Stack{}

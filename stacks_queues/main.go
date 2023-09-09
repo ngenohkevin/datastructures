@@ -22,4 +22,6 @@ func main() {
 	myStack.Push(100)
 	myStack.Push(200)
 	myStack.Push(300)
+
+	fmt.Println(myStack)
 }

@@ -14,6 +14,7 @@ func (s *Stack) Push(i int) {
 }
 
 // pop will remove value at the end
+
 // and returns the removed value
 func (s *Stack) Pop() int {
 	l := len(s.items) - 1

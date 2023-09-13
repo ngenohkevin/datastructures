@@ -51,3 +51,29 @@ func (bst *BST) InOrderTraversal() {
 	inOrder(bst.Root)
 	fmt.Println()
 }
+
+// Helper function to recursively perform in-order traversal.
+func inOrder(node *Node) {
+	if node == nil {
+		return
+	}
+
+	inOrder(node.Left)
+	fmt.Printf("%d ", node.Value)
+	inOrder(node.Right)
+}
+
+func main() {
+	bst := BST{}
+
+	// Insert value into the BST
+	values := []int{50, 30, 70, 20, 40, 60, 80}
+
+	for _, value := range values {
+		bst.Insert(value)
+	}
+
+	// Perform in-order traversal to verify the tree structure.
+	fmt.Print("In-Order Traversal: ")
+	bst.InOrderTraversal()
+}

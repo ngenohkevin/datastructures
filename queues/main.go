@@ -33,3 +33,8 @@ func (q *Queue) Front() int {
 func (q *Queue) IsEmpty() bool {
 	return len(q.items) == 0
 }
+
+// Size returns the number of elements in the queue.
+func (q *Queue) Size() int {
+	return len(q.items)
+}

@@ -10,6 +10,9 @@ type Stack struct {
 
 // push will add value at the end
 func (s *Stack) Push(i int) {
+	if s.IsEmpty() {
+		panic("Stack is empty")
+	}
 	s.items = append(s.items, i)
 }
 

@@ -3,7 +3,6 @@ package main
 import "fmt"
 
 // Node represents a single node in the BST.
-
 type Node struct {
 	Value int
 	Left  *Node
@@ -11,7 +10,6 @@ type Node struct {
 }
 
 // BST represents the Binary Search Tree.
-
 type BST struct {
 	Root *Node
 }
@@ -28,8 +26,26 @@ func (bst *BST) Insert(value int) {
 	insertNode(bst.Root, newNode)
 }
 
-// Helper function to recursively inset a node into the BST.
+// Search searches for a value in the BST.
+func (bst *BST) Search(value int) bool {
+	return searchNode(bst.Root, value)
+}
 
+// Helper function to recursively search for a value in the BST.
+func searchNode(node *Node, value int) bool {
+	if node == nil {
+		return false
+	}
+	if node.Value == value {
+		return true
+	}
+	if value < node.Value {
+		return searchNode(node.Left, value)
+	}
+	return searchNode(node.Right, value)
+}
+
+// Helper function to recursively inset a node into the BST.
 func insertNode(currentNode, newNode *Node) {
 	if newNode.Value < currentNode.Value {
 		if currentNode.Left == nil {

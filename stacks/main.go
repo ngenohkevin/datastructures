@@ -14,14 +14,23 @@ func (s *Stack) Push(i int) {
 }
 
 // pop will remove value at the end
-
 // and returns the removed value
 func (s *Stack) Pop() int {
+
+	if s.IsEmpty() {
+		panic("Stack is empty")
+	}
+
 	l := len(s.items) - 1
 
 	toRemove := s.items[l]
 	s.items = s.items[:l]
 	return toRemove
+}
+
+// IsEmpty checks if the stack is empty
+func (s *Stack) IsEmpty() bool {
+	return len(s.items) == 0
 }
 
 func main() {

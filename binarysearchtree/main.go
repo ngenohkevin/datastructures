@@ -22,4 +22,24 @@ func (bst *BST) Insert(value int) {
 		bst.Root = newNode
 		return
 	}
+
+	insertNode(bst.Root, newNode)
+}
+
+// Helper function to recursively inset a node into the BST.
+
+func insertNode(currentNode, newNode *Node) {
+	if newNode.Value < currentNode.Value {
+		if currentNode.Left == nil {
+			currentNode.Left = newNode
+		} else {
+			insertNode(currentNode.Left, newNode)
+		}
+	} else {
+		if currentNode.Right == nil {
+			currentNode.Right = newNode
+		} else {
+			insertNode(currentNode.Right, newNode)
+		}
+	}
 }

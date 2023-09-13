@@ -88,8 +88,16 @@ func main() {
 	for _, value := range values {
 		bst.Insert(value)
 	}
-
 	// Perform in-order traversal to verify the tree structure.
 	fmt.Print("In-Order Traversal: ")
 	bst.InOrderTraversal()
+
+	value := 50
+
+	found := bst.Search(value)
+	if found {
+		fmt.Printf("Value %d found in the BST.\n", value)
+	} else {
+		fmt.Printf("Value %d not found in the BST\n", value)
+	}
 }

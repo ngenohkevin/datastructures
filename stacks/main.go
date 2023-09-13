@@ -31,6 +31,15 @@ func (s *Stack) Pop() int {
 	return toRemove
 }
 
+// Peek returns the top element without removing it
+func (s *Stack) Peek() int {
+	if s.IsEmpty() {
+		panic("Stack is empty")
+	}
+
+	return s.items[len(s.items)-1]
+}
+
 // IsEmpty checks if the stack is empty
 func (s *Stack) IsEmpty() bool {
 	return len(s.items) == 0

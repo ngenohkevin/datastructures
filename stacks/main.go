@@ -61,8 +61,11 @@ func main() {
 	fmt.Println("Peek :", myStack.Peek())
 	fmt.Println("Pop :", myStack.Pop())
 
+	fmt.Println("Full stack after pop:", myStack)
+
 	// Check if the stack is empty
 	fmt.Println("Is Empty:", myStack.IsEmpty())
 
-	fmt.Println(myStack)
+	// Get the size of the stack
+	fmt.Println("Size :", myStack.Size())
 }

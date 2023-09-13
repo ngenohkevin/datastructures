@@ -45,6 +45,11 @@ func (s *Stack) IsEmpty() bool {
 	return len(s.items) == 0
 }
 
+// Size returns the number of elements in a stack
+func (s *Stack) Size() {
+
+}
+
 func main() {
 	myStack := Stack{}
 	fmt.Println(myStack)

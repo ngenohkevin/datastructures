@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 type Queue struct {
 	items []int
 }
@@ -37,4 +39,27 @@ func (q *Queue) IsEmpty() bool {
 // Size returns the number of elements in the queue.
 func (q *Queue) Size() int {
 	return len(q.items)
+}
+
+func main() {
+	queue := Queue{}
+
+	queue.Enqueue(10)
+	queue.Enqueue(20)
+	queue.Enqueue(30)
+	queue.Enqueue(40)
+
+	fmt.Println("Full Queue:", queue)
+
+	// Front, Dequeue and Peek elements
+	fmt.Println("Front:", queue.Front())
+	fmt.Println("Dequeue:", queue.Dequeue())
+
+	// Check if the queue is empty
+	fmt.Println("Is Empty:", queue.IsEmpty())
+
+	//Get the size of the queue
+	fmt.Println("Size:", queue.Size())
+
+	fmt.Println("Full Queue after Dequeue:", queue)
 }

@@ -10,9 +10,7 @@ type Stack struct {
 
 // push will add value at the end
 func (s *Stack) Push(i int) {
-	if s.IsEmpty() {
-		panic("Stack is empty")
-	}
+
 	s.items = append(s.items, i)
 }
 
@@ -26,9 +24,9 @@ func (s *Stack) Pop() int {
 
 	l := len(s.items) - 1
 
-	toRemove := s.items[l]
+	top := s.items[l]
 	s.items = s.items[:l]
-	return toRemove
+	return top
 }
 
 // Peek returns the top element without removing it
@@ -52,15 +50,19 @@ func (s *Stack) Size() int {
 
 func main() {
 	myStack := Stack{}
-	fmt.Println(myStack)
 
 	myStack.Push(100)
 	myStack.Push(200)
 	myStack.Push(300)
 	myStack.Push(400)
+	myStack.Push(50)
 
-	fmt.Println(myStack)
+	fmt.Println("Full stack :", myStack)
+	fmt.Println("Peek :", myStack.Peek())
+	fmt.Println("Pop :", myStack.Pop())
 
-	myStack.Pop()
+	// Check if the stack is empty
+	fmt.Println("Is Empty:", myStack.IsEmpty())
+
 	fmt.Println(myStack)
 }

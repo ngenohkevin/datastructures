@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // Node represents a single node in the BST.
 
 type Node struct {
@@ -42,4 +44,10 @@ func insertNode(currentNode, newNode *Node) {
 			insertNode(currentNode.Right, newNode)
 		}
 	}
+}
+
+// InOrderTraversal performs an in-order traversal of the BST.
+func (bst *BST) InOrderTraversal() {
+	inOrder(bst.Root)
+	fmt.Println()
 }

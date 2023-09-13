@@ -46,8 +46,8 @@ func (s *Stack) IsEmpty() bool {
 }
 
 // Size returns the number of elements in a stack
-func (s *Stack) Size() {
-
+func (s *Stack) Size() int {
+	return len(s.items)
 }
 
 func main() {
@@ -57,6 +57,7 @@ func main() {
 	myStack.Push(100)
 	myStack.Push(200)
 	myStack.Push(300)
+	myStack.Push(400)
 
 	fmt.Println(myStack)
 

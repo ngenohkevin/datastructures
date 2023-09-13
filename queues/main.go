@@ -21,6 +21,14 @@ func (q *Queue) Dequeue() int {
 	return front
 }
 
+// Front (Peek) returns the front element without removing it.
+func (q *Queue) Front() int {
+	if q.IsEmpty() {
+		panic("Queue is empty")
+	}
+	return q.items[0]
+}
+
 // IsEmpty checks if the queue is empty
 func (q *Queue) IsEmpty() bool {
 	return len(q.items) == 0

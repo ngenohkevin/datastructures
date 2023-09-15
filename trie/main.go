@@ -1,39 +1,46 @@
 package main
 
 // AlphabetSize is the number of possible characters in the trie
-const AlphabetSize = 26
+const alphabetSize = 26
 
-type Node struct {
-	children [26]*Node
+// TrieNode represents a single node in the Trie.
+type TrieNode struct {
+	children [alphabetSize]*TrieNode
 	isEnd    bool
 }
 
-// Trie represents a trie and has a pointer to the root node
+// Trie represents the Trie data structure.
 type Trie struct {
-	root *Node
+	root *TrieNode
 }
 
-// init trie will create a new trie
-func InitTrie() *Trie {
-	result := &Trie{root: &Node{}}
-
-	return result
-}
-
-// Insert will take in a word and add it to the trie
-func (t *Trie) Insert(w string) {
-	wordLength := len(w)
-
-	currentNode := t.root
-
-	for i := 0; i < wordLength; i++ {
-		charIndex := w[i] - 'a'
-		if currentNode.children[charIndex] == nil {
-			currentNode.children[charIndex] = &Node{}
-		}
-		currentNode = currentNode.children[charIndex]
+// Constructor function to create a new Trie.
+func NewTrie() *Trie {
+	return &Trie{
+		root: &TrieNode{},
 	}
-	currentNode.isEnd = true
+}
+
+// Insert will take in a char and add it to the trie
+func (t *Trie) Insert(char rune) {
+	charIndex := char - 'a'
+	node := t.root
+	if node.children[charIndex] == nil {
+		node.children[charIndex] = &TrieNode{}
+	}
+	node = node.children[charIndex]
+	node.isEnd = true
+}
+
+// Search searches for a character in the Trie
+func (t *Trie) Search(char rune) bool {
+	charIndex := char - 'a'
+	node := t.root
+	if node.children[charIndex] == nil {
+		return false
+	}
+	node = node.children[charIndex]
+	return node.isEnd
 }
 
 func main() {

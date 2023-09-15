@@ -8,6 +8,9 @@ type Node struct {
 	isEnd    bool
 }
 
+type Trie struct {
+}
+
 func main() {
 
 }

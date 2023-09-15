@@ -8,7 +8,16 @@ type Node struct {
 	isEnd    bool
 }
 
+// Trie represents a trie and has a pointer to the root node
 type Trie struct {
+	root *Node
+}
+
+// init trie will create a new trie
+func InitTrie() *Trie {
+	result := &Trie{root: &Node{}}
+
+	return result
 }
 
 func main() {

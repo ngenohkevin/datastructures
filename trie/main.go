@@ -44,5 +44,5 @@ func (t *Trie) Search(char rune) bool {
 }
 
 func main() {
-
+	// call the trie
 }

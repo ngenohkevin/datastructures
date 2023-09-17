@@ -23,23 +23,23 @@ func NewTrie() *Trie {
 
 // Insert will take in a char and add it to the trie
 func (t *Trie) Insert(char rune) {
-	charIndex := char - 'a'
+	wordLength := char - 'a'
 	node := t.root
-	if node.children[charIndex] == nil {
-		node.children[charIndex] = &Node{}
+	if node.children[wordLength] == nil {
+		node.children[wordLength] = &Node{}
 	}
-	node = node.children[charIndex]
+	node = node.children[wordLength]
 	node.isEnd = true
 }
 
 // Search searches for a character in the Trie
 func (t *Trie) Search(char rune) bool {
-	charIndex := char - 'a'
+	wordLength := char - 'a'
 	node := t.root
-	if node.children[charIndex] == nil {
+	if node.children[wordLength] == nil {
 		return false
 	}
-	node = node.children[charIndex]
+	node = node.children[wordLength]
 	return node.isEnd
 }
 

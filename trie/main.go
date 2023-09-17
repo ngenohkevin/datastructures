@@ -33,21 +33,36 @@ func (t *Trie) Insert(w string) {
 			currentNode.children[charIndex] = &Node{}
 		}
 		currentNode = currentNode.children[charIndex]
-		currentNode.isEnd = true
 	}
+	currentNode.isEnd = true
 }
 
 // Search searches for a character in the Trie
-func (t *Trie) Search(char rune) bool {
-	charIndex := char - 'a'
-	node := t.root
-	if node.children[charIndex] == nil {
-		return false
+func (t *Trie) Search(w string) bool {
+	wordLength := len(w)
+
+	currentNode := t.root
+	for i := 0; i < wordLength; i++ {
+		charIndex := w[i] - 'a'
+
+		if currentNode.children[charIndex] == nil {
+			return false
+		}
+		currentNode = currentNode.children[charIndex]
 	}
-	node = node.children[charIndex]
-	return node.isEnd
+
+	if currentNode.isEnd == true {
+		return true
+	}
+
+	return false
 }
 
 func main() {
 	// call the trie
+
+	myTrie := NewTrie()
+
+	myTrie.Insert("kevin")
+	myTrie.Search("kevin")
 }

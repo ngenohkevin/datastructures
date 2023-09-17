@@ -1,11 +1,13 @@
 package main
 
+import "fmt"
+
 // AlphabetSize is the number of possible characters in the trie
 const alphabetSize = 26
 
 // Node represents a single node in the Trie.
 type Node struct {
-	children [alphabetSize]*Node
+	children [300]*Node
 	isEnd    bool
 }
 
@@ -63,6 +65,19 @@ func main() {
 
 	myTrie := NewTrie()
 
-	myTrie.Insert("kevin")
-	myTrie.Search("kevin")
+	toAdd := []string{
+		"Kevin",
+		"kelvin",
+		"Melvin",
+		"Mevin",
+		"Marvin",
+		"Man",
+		"Murica",
+		"Mason",
+	}
+	for _, v := range toAdd {
+		myTrie.Insert(v)
+	}
+
+	fmt.Println(myTrie.Search("Kevin"))
 }

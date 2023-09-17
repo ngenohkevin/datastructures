@@ -3,21 +3,21 @@ package main
 // AlphabetSize is the number of possible characters in the trie
 const alphabetSize = 26
 
-// TrieNode represents a single node in the Trie.
-type TrieNode struct {
-	children [alphabetSize]*TrieNode
+// Node represents a single node in the Trie.
+type Node struct {
+	children [alphabetSize]*Node
 	isEnd    bool
 }
 
 // Trie represents the Trie data structure.
 type Trie struct {
-	root *TrieNode
+	root *Node
 }
 
 // Constructor function to create a new Trie.
 func NewTrie() *Trie {
 	return &Trie{
-		root: &TrieNode{},
+		root: &Node{},
 	}
 }
 
@@ -26,7 +26,7 @@ func (t *Trie) Insert(char rune) {
 	charIndex := char - 'a'
 	node := t.root
 	if node.children[charIndex] == nil {
-		node.children[charIndex] = &TrieNode{}
+		node.children[charIndex] = &Node{}
 	}
 	node = node.children[charIndex]
 	node.isEnd = true

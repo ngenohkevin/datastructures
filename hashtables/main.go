@@ -6,3 +6,8 @@ type HashTable struct {
 }
 
 // bucket represents a linked list of key-value pairs.
+type bucket struct {
+	key   string
+	value interface{}
+	next  *bucket
+}

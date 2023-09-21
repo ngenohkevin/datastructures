@@ -27,14 +27,15 @@ func (h *HashTable) Insert(key string) {
 }
 
 // Search will take in a key and return true if that key is stored in the hash table
-func (h *HashTable) Search(key string) {
+func (h *HashTable) Search(key string) bool {
 	index := hash(key)
-
+	return h.array[index].search(key)
 }
 
 // Delete will take in a key and delete it from the hash table
 func (h *HashTable) Delete(key string) {
 	index := hash(key)
+	h.array[index].delete(key)
 
 }
 
@@ -98,4 +99,25 @@ func Init() *HashTable {
 		result.array[i] = &bucket{}
 	}
 	return result
+}
+
+func main() {
+	hashTable := Init()
+	list := []string{
+		"KEVIN",
+		"KENNY",
+		"STAN",
+		"RANDY",
+		"BRIAN",
+		"BRUCE",
+		"BUTTERS",
+		"TOKEN",
+	}
+
+	for _, v := range list {
+		hashTable.Insert(v)
+	}
+
+	hashTable.Delete("STAN")
+	fmt.Println(hashTable.Search("KEVIN"))
 }

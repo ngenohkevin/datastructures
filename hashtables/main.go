@@ -72,6 +72,24 @@ func (b *bucket) search(k string) bool {
 	return false
 }
 
+// delete will take in a key and delete the node from the bucket
+func (b *bucket) delete(k string) {
+
+	if b.head.key == k {
+		b.head = b.head.next
+		return
+	}
+
+	previousNode := b.head
+	for previousNode.next != nil {
+		if previousNode.next.key == k {
+			// delete
+			previousNode.next = previousNode.next.next
+		}
+		previousNode = previousNode.next
+	}
+}
+
 // Init will create a bucket in each slot of the hash table
 func Init() *HashTable {
 	result := &HashTable{}

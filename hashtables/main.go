@@ -14,4 +14,6 @@ type bucket struct {
 
 // bucketNode structure
 type bucketNode struct {
+	key  string
+	next *bucketNode
 }

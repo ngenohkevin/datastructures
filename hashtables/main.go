@@ -17,3 +17,13 @@ type bucketNode struct {
 	key  string
 	next *bucketNode
 }
+
+// Init will create a bucket in each slot of the hash table
+func Init() *HashTable {
+	result := &HashTable{}
+
+	for i := range result.array {
+		result.array[i] = &bucket{}
+	}
+	return result
+}

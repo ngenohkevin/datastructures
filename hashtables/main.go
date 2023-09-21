@@ -18,6 +18,31 @@ type bucketNode struct {
 	next *bucketNode
 }
 
+// Insert will take in a key and add it to the hash table array
+func (h *HashTable) Insert(key string) {
+	index := hash(key)
+}
+
+// Search will take in a key and return true if that key is stored in the hash table
+func (h *HashTable) Search(key string) {
+	index := hash(key)
+
+}
+
+// Delete will take in a key and delete it from the hash table
+func (h *HashTable) Delete(key string) {
+	index := hash(key)
+
+}
+
+// hash
+func hash(key string) int {
+	sum := 0
+	for _, v := range key {
+		sum += int(v)
+	}
+}
+
 // Init will create a bucket in each slot of the hash table
 func Init() *HashTable {
 	result := &HashTable{}

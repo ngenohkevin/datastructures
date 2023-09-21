@@ -60,6 +60,8 @@ func (t *Trie) Search(w string) bool {
 	return false
 }
 
+// to be reviewed again
+
 func main() {
 	// call the trie
 

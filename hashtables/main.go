@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 const ArraySize = 7
 
 // HashTable represents a basic hash table with key-value pairs.
@@ -48,9 +50,26 @@ func hash(key string) int {
 
 // insert will take in a key, create a node with the key and insert the node in the bucket
 func (b *bucket) insert(k string) {
-	newNode := &bucketNode{key: k}
-	newNode.next = b.head
-	b.head = newNode
+	if !b.search(k) {
+		newNode := &bucketNode{key: k}
+		newNode.next = b.head
+		b.head = newNode
+	} else {
+		fmt.Println(k, "already exists")
+	}
+
+}
+
+// search will take in a key and return true if that bucket has that key
+func (b *bucket) search(k string) bool {
+	currentNode := b.head
+	for currentNode != nil {
+		if currentNode.key == k {
+			return true
+		}
+		currentNode = currentNode.next
+	}
+	return false
 }
 
 // Init will create a bucket in each slot of the hash table

@@ -21,6 +21,7 @@ type bucketNode struct {
 // Insert will take in a key and add it to the hash table array
 func (h *HashTable) Insert(key string) {
 	index := hash(key)
+	h.array[index].insert(key)
 }
 
 // Search will take in a key and return true if that key is stored in the hash table
@@ -41,6 +42,15 @@ func hash(key string) int {
 	for _, v := range key {
 		sum += int(v)
 	}
+
+	return sum % ArraySize
+}
+
+// insert will take in a key, create a node with the key and insert the node in the bucket
+func (b *bucket) insert(k string) {
+	newNode := &bucketNode{key: k}
+	newNode.next = b.head
+	b.head = newNode
 }
 
 // Init will create a bucket in each slot of the hash table

@@ -111,7 +111,6 @@ func main() {
 		"BRIAN",
 		"BRUCE",
 		"BUTTERS",
-		"TOKEN",
 	}
 
 	for _, v := range list {
